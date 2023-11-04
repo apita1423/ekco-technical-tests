@@ -11,8 +11,15 @@ test('test ekco navigation', async({ page }) => {
 
     // check login button and form
     await page.getByRole('link', { name: 'Log in' }).click();
+
     await page.goto("https://portal.ek.co/login?next=");
     await expect(page).toHaveURL("https://portal.ek.co/login?next=");
     await expect(page.locator('.col-md-4')).toBeVisible();
+    await page.pause();
+
+    //Test Case 2 - Form Errors - I reused the portal links from above for the form errors test
+    await page.getByRole('button', { name: 'Log In' }).click();
+    await expect(page.getByText('Email is required')).toBeVisible();
+    await expect(page.getByText('Email is required')).toBeVisible();
     await page.pause();
 });
