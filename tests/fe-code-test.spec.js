@@ -3,7 +3,7 @@ import { ekcoLoginPage } from '../pages/ekco-portal-login';
 
 // Test Case 1 - Navigation
 test('test ekco navigation', async({ page }) => {
-    
+
     // code for the Page Object Model
     const login = new ekcoLoginPage(page);
     await login.gotoekcoLoginPage();
@@ -21,7 +21,7 @@ test('test ekco navigation', async({ page }) => {
     await expect(page).toHaveURL("https://portal.ek.co/login?next=");
     await expect(page.locator('.col-md-4')).toBeVisible();
 
-// Test Case 2 - Form Errors - Reused the portal links from above for ther continuation of forms
+    // Test Case 2 - Form Errors - Reused the portal links from above for ther continuation of forms
     // check when login button is clicked first email and password would show require
     await page.getByPlaceholder('Your email').click();
     await page.getByPlaceholder('Your password').click();
@@ -29,7 +29,7 @@ test('test ekco navigation', async({ page }) => {
     await expect(page.getByText('Email is required')).toBeVisible();
     await expect(page.getByText('Password is required')).toBeVisible();
 
-//Test Case 3 - Invalid Email Error
+    //Test Case 3 - Invalid Email Error
     await page.goto("https://portal.ek.co/");
     await expect(page.locator('.col-md-4')).toBeVisible();
     await page.getByPlaceholder('Your email').fill('mail.com');

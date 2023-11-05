@@ -1,3 +1,4 @@
+// page object model
 exports.ekcoLoginPage = class ekcoLoginPage {
     constructor(page) {
         this.page = page;
