@@ -12,8 +12,8 @@ exports.ekcoLoginPage = class ekcoLoginPage {
     };
 
     async login(email, password) {
-        await this.email_textbox.fill('Your email');
-        await this.password_textbox.fill('Your password');
+        await this.email_textbox.fill('email');
+        await this.password_textbox.fill('password');
         await this.login_button.click();
-    }
+    };
 };
